@@ -3,6 +3,8 @@
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
+    private Rigidbody _rigidbody;
+    [SerializeField]
     private float _speed;
     [SerializeField]
     private float _angle;
@@ -11,7 +13,12 @@ public class PlayerController : MonoBehaviour
     {
     }
 
-    void Update()
+    void FixedUpdate()
+    {
+        WASDController();
+    }
+
+    private void WASDController()
     {
         Vector3 positionOffset = gameObject.transform.position;
         Vector3 rotateOffset = Vector3.zero;
